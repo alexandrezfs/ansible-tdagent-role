@@ -1,0 +1,4 @@
+---
+
+  - include: td_agent.yml
+  - include: plugins.yml

@@ -1,0 +1,15 @@
+---
+aldebaran_tdagent:
+  td_agent_version: '2.3.5-0'
+  tdagent_apt_key: "https://packages.treasuredata.com/GPG-KEY-td-agent"
+  tdagent_repo: "deb http://packages.treasuredata.com/2/debian/jessie/ jessie contrib"
+  tdagent_plugins:
+    - fluent-plugin-elasticsearch
+    - fluent-plugin-geoip
+  tdagent_plugins_versions:
+    prometheus:
+      name: fluent-plugin-prometheus
+      version: 0.1.2
+    flowcounter:
+      name: fluent-plugin-flowcounter
+      version: 0.4.1

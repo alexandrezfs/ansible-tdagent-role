@@ -1,0 +1,17 @@
+
+- name: Install plugins, if any
+  gem:
+      name: "{{ item }}"
+      executable: /opt/td-agent/embedded/bin/fluent-gem
+      state: latest
+      user_install: no
+  with_items: "{{ aldebaran_tdagent.tdagent_plugins | default([]) }}"
+
+- name: Install plugins with specified versions, if any
+  gem:
+      name: "{{ item.value.name }}"
+      executable: /opt/td-agent/embedded/bin/fluent-gem
+      state: present
+      version: "{{ item.value.version }}"
+      user_install: no
+  with_dict: "{{ aldebaran_tdagent.tdagent_plugins_versions | default({}) }}"
