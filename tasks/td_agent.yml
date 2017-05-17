@@ -1,14 +1,3 @@
-- name: Create TD agent group
-  group:
-    name: "td_agent"
-    state: present
-
-- name: Create TD agent user
-  user:
-    name: "td_agent"
-    comment: "TD Agent user"
-    group: "td_agent"
-
 - name: Add td-agent key
   apt_key: url={{ aldebaran_tdagent.tdagent_apt_key }}
 
