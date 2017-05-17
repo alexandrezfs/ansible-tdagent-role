@@ -6,10 +6,10 @@ aldebaran_tdagent:
   tdagent_plugins:
     - fluent-plugin-elasticsearch
     - fluent-plugin-geoip
-  tdagent_plugins_versions:
-    prometheus:
-      name: fluent-plugin-prometheus
-      version: 0.1.2
-    flowcounter:
-      name: fluent-plugin-flowcounter
-      version: 0.4.1
+#  tdagent_plugins_versions:
+#    prometheus:
+#      name: fluent-plugin-prometheus
+#      version: 0.1.2
+#    flowcounter:
+#      name: fluent-plugin-flowcounter
+#      version: 0.4.1

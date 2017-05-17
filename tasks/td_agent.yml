@@ -1,24 +1,22 @@
----
+- name: Create TD agent group
+  group:
+    name: "td_agent"
+    state: present
 
-  - name: Create TD agent group
-    group:
-      name: "td_agent"
-      state: present
+- name: Create TD agent user
+  user:
+    name: "td_agent"
+    comment: "TD Agent user"
+    group: "td_agent"
 
-  - name: Create TD agent user
-    user:
-      name: "td_agent"
-      comment: "TD Agent user"
-      group: "td_agent"
+- name: Add td-agent key
+  apt_key: url={{ aldebaran_tdagent.tdagent_apt_key }}
 
-  - name: Add td-agent key
-    apt_key: url={{ aldebaran_tdagent.tdagent_apt_key }}
+- name: Add td-agent repository
+  apt_repository: repo="{{ aldebaran_tdagent.tdagent_repo }}"
 
-  - name: Add td-agent repository
-    apt_repository: repo="{{ aldebaran_tdagent.tdagent_repo }}"
+- name: Install td-agent
+  action: apt name=td-agent={{ aldebaran_tdagent.td_agent_version }}
 
-  - name: Install td-agent
-    action: apt name=td-agent={{ aldebaran_tdagent.td_agent_version }}
-
-  - name: Make sure td-agent service is running
-    systemd: state=started name=td-agent
+- name: Make sure td-agent service is running
+  systemd: state=started name=td-agent

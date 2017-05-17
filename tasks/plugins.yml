@@ -1,4 +1,3 @@
-
 - name: Install plugins, if any
   gem:
       name: "{{ item }}"
