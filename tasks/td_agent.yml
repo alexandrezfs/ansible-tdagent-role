@@ -1,3 +1,10 @@
+- name: Install Ruby dev/gems
+  apt: pkg={{item}} state=latest
+  with_items:
+    - build-essential
+    - rubygems
+    - ruby-dev
+
 - name: Add td-agent key
   apt_key: url={{ tdagent_apt_key }}
 
