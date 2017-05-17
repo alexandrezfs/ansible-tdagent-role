@@ -1,11 +1,11 @@
 - name: Add td-agent key
-  apt_key: url={{ aldebaran_tdagent.tdagent_apt_key }}
+  apt_key: url={{ tdagent_apt_key }}
 
 - name: Add td-agent repository
-  apt_repository: repo="{{ aldebaran_tdagent.tdagent_repo }}"
+  apt_repository: repo="{{ tdagent_repo }}"
 
 - name: Install td-agent
-  action: apt name=td-agent={{ aldebaran_tdagent.td_agent_version }}
+  action: apt name=td-agent={{ td_agent_version }}
 
 - name: Make sure td-agent service is running
   systemd: state=started name=td-agent
