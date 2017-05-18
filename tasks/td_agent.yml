@@ -1,18 +1,23 @@
 - name: Install Ruby dev/gems
-  apt: pkg={{item}} state=latest
+  apt:
+    pkg: "{{item}}"
   with_items:
-    - build-essential
-    - rubygems
-    - ruby-dev
+    - build-essential={{ build_essential_version }}
+    - ruby-dev={{ ruby_dev_version }}
 
 - name: Add td-agent key
-  apt_key: url={{ tdagent_apt_key }}
+  apt_key:
+    url: "{{ tdagent_apt_key }}"
 
 - name: Add td-agent repository
-  apt_repository: repo="{{ tdagent_repo }}"
+  apt_repository:
+    repo: "{{ tdagent_repo }}"
 
 - name: Install td-agent
-  action: apt name=td-agent={{ td_agent_version }}
+  apt:
+    name: td-agent={{ td_agent_version }}
 
 - name: Make sure td-agent service is running
-  systemd: state=started name=td-agent
+  service:
+    state: started
+    name: td-agent

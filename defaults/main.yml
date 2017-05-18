@@ -1,8 +1,11 @@
 ---
 td_agent_version: '2.3.5-0'
+build_essential_version: '11.7'
+rubygems_version: 'latest'
+ruby_dev_version: '1:2.1.5+deb8u2'
 tdagent_apt_key: "https://packages.treasuredata.com/GPG-KEY-td-agent"
 tdagent_repo: "deb http://packages.treasuredata.com/2/debian/jessie/ jessie contrib"
-tdagent_plugins:
+#tdagent_plugins:
 #  - fluent-plugin-elasticsearch
 #  - fluent-plugin-geoip
 # tdagent_plugins_versions:
